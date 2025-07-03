@@ -31,8 +31,13 @@ file: /<path>typescript-import-issue/node_modules/@valtown/codemirror-ts/dist/es
     - OR it's a module system interop around how playwright is launching?
 - Hacking / patching the `getAutocompletion` file (and all other files) can work around the `RollupError`, but that runs into runtime issues where the module is resolved incorrectly
 - Using `import * as ts from "typescript"` does not work (the values are missing at runtime) and the same happens with `const ts = await import("typescript")`
-    - I _think_ this is due to the fact that `typescript` is built for interop with `NodeNext` and the format causes issue with `rollup` but I don't know enough there to be sure
+    - I _think_ this is due to the fact that `typescript` is built for interop with `NodeNext` and the format causes issue with `rollup` and its own interop layer but I don't know enough there to be sure
 
+
+### Things to try
+
+- [ ] Attempt to import `typescript` dynamically ala [this](https://github.com/vitejs/vite/issues/2982#issuecomment-860639340)
+- [ ] Manually Build TS via `esbuild` in an ESM compatible format
 
 
 ### Playwright's vite config
