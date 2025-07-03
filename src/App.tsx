@@ -1,14 +1,13 @@
 import React from "react";
-// this package should trigger the issue
-import { createWorker, type WorkerShape } from "@valtown/codemirror-ts/worker";
+import ts from "typescript"
 
-// just to not have a linter yell at us
-void createWorker;
+console.log('runtime', ts.SymbolFlags)
 
 const App: React.FC = () => {
   return (
     <div>
       <h1>TypeScript Import Test App</h1>
+      Ts symbol flag[0]: {ts.SymbolFlags[0]}
       <div id="editor-worker"></div>
     </div>
   );
