@@ -27,9 +27,9 @@ file: /<path>typescript-import-issue/node_modules/@valtown/codemirror-ts/dist/es
 
 - Compilation works with "normal" vite and even programmatic usage of vite via `vanilla-build.js` and `vanilla-build.mjs`
 - It seems to be due to how [Playwright configures and uses vite](https://github.com/microsoft/playwright/blob/c921c38737cbd630b330d5e22adbab712b12afe1/packages/playwright-ct-core/src/vitePlugin.ts#L185-L188)
-    - My bet is something about the plugin configuration is strange here
-- Hacking / patching the getAutocompletion package can work around the RollupError, but that runs into runtime issues where the module is resolved incorrectly
-
+    - My bet is something about the plugin configuration is strange here. If I comment out the playwright plugin I do not see this error
+    - OR it's a module system interop around how playwright is launching?
+- Hacking / patching the `getAutocompletion` file (and all other files) can work around the `RollupError`, but that runs into runtime issues where the module is resolved incorrectly
 
 
 ### Playwright's vite config
@@ -67,3 +67,5 @@ file: /<path>typescript-import-issue/node_modules/@valtown/codemirror-ts/dist/es
   ]
 }
 ```
+
+Using this config (without plugins) allows the `vanilla-build.js` to pass. Commenting out the plugin within the `playwright-ct` node module also allows the build to complete.
