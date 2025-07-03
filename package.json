@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
+    "postinstall": "patch-package",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test-ct": "playwright test -c playwright-ct.config.ts"
@@ -19,6 +20,7 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "patch-package": "^8.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   }
