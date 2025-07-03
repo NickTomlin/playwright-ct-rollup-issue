@@ -1,5 +1,9 @@
-import React from 'react';
-import './main';
+import React from "react";
+// this package should trigger the issue
+import { createWorker, type WorkerShape } from "@valtown/codemirror-ts/worker";
+
+// just to not have a linter yell at us
+void createWorker;
 
 const App: React.FC = () => {
   return (
