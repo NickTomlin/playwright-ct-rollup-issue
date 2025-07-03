@@ -1,6 +1,6 @@
 import React from "react";
-// comment this out to have npm run ct pass
-import ts from "typescript"
+
+import * as ts from "./BIG_TS"
 
 const App: React.FC = () => {
   return (
