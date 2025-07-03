@@ -10,7 +10,9 @@
     "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-react17": "^1.53.2",
+    "@playwright/experimental-ct-core": "1.50.0",
+    "@playwright/experimental-ct-react17": "1.50.0",
+    "@playwright/test": "1.50.0",
     "@types/node": "^24.0.10",
     "@types/react": "^17.0.87",
     "@types/react-dom": "^17.0.26",
